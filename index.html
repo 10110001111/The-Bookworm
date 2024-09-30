@@ -3,158 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bookworm Online Bookstore</title>
+    <title>The Bookworm Online</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #e74c3c;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
-        }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
-        header {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        #branding {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
         }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
+        #branding .highlight {
+            color: #e8491d;
             font-weight: bold;
         }
-        header .highlight {
-            color: var(--secondary-color);
+        nav {
+            float: right;
+            margin-top: 10px;
         }
         nav ul {
-            display: flex;
-            list-style: none;
+            padding: 0;
         }
-        nav ul li {
-            margin-left: 1rem;
+        nav li {
+            display: inline;
+            padding: 0 20px;
         }
-        #showcase {
-            background-color: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 8rem 0 4rem;
-            margin-top: 60px;
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
         }
-        #showcase h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        #newsletter {
-            background: var(--secondary-color);
-            color: #fff;
-            padding: 2rem 0;
-        }
-        #newsletter .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #newsletter input[type="email"] {
-            padding: 0.5rem;
-            width: 250px;
-            border: none;
-            border-radius: 4px;
-        }
-        .button {
-            background: var(--primary-color);
-            border: none;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #34495e;
-        }
-        #features {
-            padding: 4rem 0;
+        .section {
+            padding: 20px 0;
+            background: #f4f4f4;
         }
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
         .feature {
             background: #fff;
-            padding: 2rem;
+            padding: 20px;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        .feature h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
         }
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 40px;
         }
-        #theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .dark-mode {
-            --background-color: #2c3e50;
-            --text-color: #ecf0f1;
-        }
-        .book-preview {
+        #login-section {
             background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-            text-align: left;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
         }
-        .book-preview h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #e8491d;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
         }
-        #load-more {
-            display: block;
-            margin: 2rem auto;
-            padding: 0.5rem 1rem;
+        .btn:hover {
+            background: #35424a;
+        }
+        #user-info {
+            display: none;
+        }
+        input[type="email"], input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -166,32 +95,48 @@
             </div>
             <nav>
                 <ul>
-                    <li class="current"><a href="#showcase">Home</a></li>
+                    <li><a href="#showcase">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#book-recommendations">Books</a></li>
+                    <li><a href="#login-section" id="login-nav">Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="showcase">
+    <section id="showcase" class="section">
         <div class="container">
             <h1>Welcome to The Bookworm Online</h1>
             <p>Discover a world of books at your fingertips. From classics to bestsellers, find your next great read with us.</p>
         </div>
     </section>
 
-    <section id="newsletter">
+    <section id="login-section" class="section">
+        <div class="container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div id="user-info">
+                <p>Welcome, <span id="user-name"></span>!</p>
+                <button id="logout-btn" class="btn">Logout</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="section">
         <div class="container">
             <h2>Subscribe to our newsletter</h2>
             <form id="newsletter-form">
-                <input type="email" placeholder="Enter Email..." required>
-                <button type="submit" class="button">Subscribe</button>
+                <input type="email" placeholder="Enter your email..." required>
+                <button type="submit" class="btn">Subscribe</button>
             </form>
         </div>
     </section>
 
-    <section id="features">
+    <section id="features" class="section">
         <div class="container">
             <div class="feature-grid">
                 <div class="feature">
@@ -213,81 +158,108 @@
         </div>
     </section>
 
-    <section id="book-recommendations">
+    <section id="book-recommendations" class="section">
         <div class="container">
             <h2>Book Recommendations</h2>
-            <div id="book-list"></div>
-            <button id="load-more" class="button">Load More Books</button>
+            <div id="book-list">
+                <!-- Book recommendations will be dynamically loaded here -->
+            </div>
+            <button class="btn" id="load-more-books">Load More Books</button>
         </div>
     </section>
 
-    <button id="theme-toggle">🌓</button>
+    <footer>
+        <div class="container">
+            <p>© 2024 The Bookworm Online. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Newsletter form submission
-        const newsletterForm = document.getElementById('newsletter-form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
-            newsletterForm.reset();
-        });
-
-        // Book recommendations
-        const books = [
-            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", description: "A classic novel about the American Dream." },
-            { title: "To Kill a Mockingbird", author: "Harper Lee", description: "A powerful story of racial injustice and loss of innocence." },
-            { title: "1984", author: "George Orwell", description: "A dystopian novel about totalitarianism and surveillance." },
-            { title: "Pride and Prejudice", author: "Jane Austen", description: "A romantic novel of manners set in Georgian England." },
-            { title: "The Catcher in the Rye", author: "J.D. Salinger", description: "A coming-of-age novel about teenage angst and alienation." },
-            { title: "Harry Potter and the Sorcerer's Stone", author: "J.K. Rowling", description: "The first book in the magical Harry Potter series." }
+        // Simple user database
+        const users = [
+            { username: 'user1', password: 'pass1' },
+            { username: 'user2', password: 'pass2' }
         ];
 
-        const bookList = document.getElementById('book-list');
-        const loadMoreButton = document.getElementById('load-more');
-        let displayedBooks = 0;
+        // Sample book data
+        const books = [
+            { title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
+            { title: "To Kill a Mockingbird", author: "Harper Lee" },
+            { title: "1984", author: "George Orwell" },
+            { title: "Pride and Prejudice", author: "Jane Austen" }
+        ];
 
-        function displayBooks(start, count) {
-            const booksToShow = books.slice(start, start + count);
-            booksToShow.forEach(book => {
+        // DOM Elements
+        const loginForm = document.getElementById('login-form');
+        const userInfo = document.getElementById('user-info');
+        const userName = document.getElementById('user-name');
+        const logoutBtn = document.getElementById('logout-btn');
+        const loginNav = document.getElementById('login-nav');
+        const bookList = document.getElementById('book-list');
+        const loadMoreBtn = document.getElementById('load-more-books');
+        const newsletterForm = document.getElementById('newsletter-form');
+
+        // Authentication functions
+        function login(username) {
+            localStorage.setItem('currentUser', username);
+            loginForm.style.display = 'none';
+            userInfo.style.display = 'block';
+            userName.textContent = username;
+            loginNav.textContent = 'Account';
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            loginForm.style.display = 'block';
+            userInfo.style.display = 'none';
+            loginNav.textContent = 'Login';
+        }
+
+        // Populate book list
+        function populateBooks() {
+            bookList.innerHTML = '';
+            books.forEach(book => {
                 const bookElement = document.createElement('div');
-                bookElement.className = 'book-preview';
-                bookElement.innerHTML = `
-                    <h3>${book.title}</h3>
-                    <p><strong>Author:</strong> ${book.author}</p>
-                    <p>${book.description}</p>
-                `;
+                bookElement.innerHTML = `<h3>${book.title}</h3><p>${book.author}</p>`;
                 bookList.appendChild(bookElement);
             });
-            displayedBooks += booksToShow.length;
-            if (displayedBooks >= books.length) {
-                loadMoreButton.style.display = 'none';
+        }
+
+        // Event Listeners
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                login(username);
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        logoutBtn.addEventListener('click', logout);
+
+        loadMoreBtn.addEventListener('click', function() {
+            alert('More books would be loaded here in a full implementation.');
+        });
+
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+        });
+
+        // Initialize
+        function init() {
+            populateBooks();
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                login(currentUser);
             }
         }
 
-        loadMoreButton.addEventListener('click', () => displayBooks(displayedBooks, 2));
-
-        // Initial display of books
-        displayBooks(0, 2);
+        init();
     </script>
-    <footer style="background-color: lightgreen; color: #fff; text-align: center; padding: 1rem 0; margin-top: 2rem;">
-        <p>&copy; 2024 The Bookworm Online. All rights reserved.</p>
-    </footer>
-
 </body>
 </html>
